@@ -1,6 +1,6 @@
 import unittest
 
-from api import calculate_total, calculate_reward
+from api import calculate_total, calculate_reward, MEMBERSHIP_REWARD, COMMUNITY_REWARD
 from item import Item
 
 items = [
@@ -18,7 +18,7 @@ class TestApi(unittest.TestCase):
         self.assertEqual(calculate_total(items), 8.5)
 
     def test_calc_membership_reward(self):
-        self.assertEqual(calculate_reward(items, percentage=0.05), 0.425)
+        self.assertEqual(calculate_reward(MEMBERSHIP_REWARD, items), 0.425)
 
     def test_calc_community_reward(self):
-        self.assertEqual(calculate_reward(items, percentage=0.01), 0.085)
+        self.assertEqual(calculate_reward(COMMUNITY_REWARD, items), 0.085)
